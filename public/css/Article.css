@@ -1,0 +1,440 @@
+html {
+  background: #F8F8F8;
+}
+body {
+  width: 1000px;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+:focus {
+	outline: none;
+}
+input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner {
+  border: none;
+}
+header {
+  height: 90px;
+  background: #fff;
+  box-shadow: 0px 0px 5px silver;
+  margin: 10px 0px;
+  position: relative;
+}
+section img {
+  width: 100%;
+  max-height: 600px;
+}
+            /*Фон, цвет виделеного текста*/
+body *::-moz-selection {
+  background: rgba(255,251,102, 0.8);
+  color: rgb(19,188,188);
+}
+body *::-webkit-selection {
+  background: rgba(255,251,102, 0.8);
+  color: rgb(19,188,188);
+}
+body *::selection {
+  background: rgba(255,251,102, 0.8);
+  color: rgb(19,188,188);
+}
+              /*Навигация*/
+h1 {
+  font:bold 58px sans-serif;
+  margin: 10px -23px 10px 10px;
+  float: left;
+  color: #444;
+  text-shadow: 0px 0px 3px silver;
+}
+h1 a span {
+  color: #eee;
+  text-shadow: 0px 0px 3px black;
+}
+header ul {
+  display: inline-block;
+  margin: 35px 55px; 
+  border-bottom: 5px solid #ddd;
+  padding: 0px 2px
+}
+header li {
+  display: inline-block;
+  font: bold 22px verdana;
+  line-height: 40px;
+  padding: 0px 5px; 
+  border: 1px solid #fff;
+  margin: 10px -2px 0px -2px;
+}
+header li:hover {
+  background: linear-gradient(to top, #ddd, #fff);
+  border: 1px solid #acacac;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px 10px 0px 0px;
+}
+header .active {
+  background: linear-gradient(to top, #ddd, #fff);
+  border: 1px solid #acacac;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px 10px 0px 0px;
+}
+         /*Форми*/
+#search {
+  display: inline-block;
+  position: absolute;
+  margin: 10px 55px;
+  width: 290px;
+}
+#search_btn {
+  width: 80px;
+}
+#entry {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 220px;
+  
+  border-radius: 3px;
+}
+form a, input {
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  padding: 3px 3px;
+  font-size: 14px;
+  margin: 2px; 
+  width: 190px;
+}
+#aForgot {
+  border: none;
+  font: 15px sans;
+  color: white;
+}
+#log-in label{
+  color: white;
+}
+input[type="checkbox"] {
+  width: 20px;
+}
+input[type="button"]{
+  font-weight: bold;
+  padding-bottom: 4px;
+  width: 99%;
+}
+input[type="submit"] {
+  font-weight: bold;
+}
+#log-in input[type="submit"] {
+  padding-bottom: 4px;
+  width: 99%;
+}
+input[type="button"]:hover, [type="submit"]:hover {
+  background: #ebebeb;
+  cursor: pointer;
+}
+#registrationBtn {
+  background: #ebebeb;
+  width: 120px;
+  padding: 3px 5px 4px 5px;
+}
+#loginBtn, #search input[type="button"]{
+  width: 75px;
+}
+#loginBtn {
+  background: #1cc;
+  color: white;
+}
+#loginBtn:hover {
+  background: #2dd;
+}
+#loginBtn.logout {
+  float: right;
+  font-weight: bold;
+  padding-bottom: 4px;
+  font-family: Arial;
+  text-align: center;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  padding: 3px 3px;
+}
+.help-block {
+  display: block;
+  color: white;
+  text-shadow: none;
+  padding: 3px;
+}
+#log-in, #Sign-up {
+  background: silver;
+  margin: 3px;
+  padding: 5px;
+  width: 202px;
+  box-shadow: 0px 0px 5px #ccc;
+  position: relative;
+  z-index: 1;
+}
+#setting_img {
+  height:30px;
+  position: absolute;
+  right: 250px;
+  top: 8px;
+}
+		   /*Popup*/
+#wrap{
+	display: none;
+	opacity: 0.5;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+	background-color: rgba(1, 1, 1, 0.725);
+	z-index: 100;
+	overflow: auto;
+}
+#window{
+	width: 396px;
+	height: 500px;
+	margin: 50px auto;
+	display: none;
+	background: #fff;
+	z-index: 200;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+}
+.close{
+	margin-left: 355px;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+            /*Статья*/
+section a {
+  color: #2181df;
+}
+#back{
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  padding: 5px 3px;
+  font: bold 20px sans-serif;
+  color: #c0c0c0;
+  background: none;
+  width: 150px;
+}
+ #back:hover {
+  color: #888
+}
+.center {
+  background: white;
+  box-shadow: 0px 0px 5px silver;
+}
+.title {
+  padding: 30px;
+}
+h2 {
+  font: bold 35px sans-serif;
+  margin: 5px 0px 0px 0px;
+  color: #444;
+  #text-shadow: 0px 0px 3px silver;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px
+}
+h3 {
+  font: 20px 	Georgia;
+}
+#star {
+  height: 30px;
+  position: relative;
+  top: 5px;
+  margin-left: 10px;
+}
+section {
+  display: inline-block;
+  width: 70%;
+  margin: -35px 0px 10px 30px;
+}
+p {
+  font: 16px "Open Sans",Verdana,Tahoma,sans-serif;
+  padding: 0px;
+  line-height: 1.4;
+  color: #282828;
+}
+.image a img {
+  display: inline-block;
+  width: 49%;
+}
+              /*Реклама*/
+.advertising {
+  height: 500px;
+  width: 22%;
+  float: right;
+  position: relative;
+  margin:  -15px 30px 10px 10px;
+  padding-top: 0px; 
+  border: 1px solid silver;
+}
+.advertising img {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+#above:hover {
+  width: 95%;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+#above {
+  width: 90%;
+  height: auto;
+  position: relative;
+  top: -100px;
+  margin-left: 10px;
+}
+          /*Другое*/
+#up {
+  position: fixed;
+  bottom: 100px; 
+  right: 30px;
+  display: none;
+  cursor: pointer;
+  border: 3px solid #ddd;
+  border-radius: 50px;
+  padding: 5px 5px 0px 5px;
+}
+#up img {
+  width: 50px;
+  height: 50px;
+}
+.pluso {
+  margin: 0px 0px 10px 200px;
+}
+             /*Подвал*/
+footer {
+  background: white;
+  box-shadow: 0px 0px 5px silver;
+  margin: 10px 0px;
+  padding: 10px
+}
+footer p {
+  display: inline-block;
+  font: bold 20px sans-serif;
+  color: silver;
+  padding: 20px;
+  margin: 0px;
+}
+footer a {
+  color: silver;
+}
+footer a:hover {
+  color: #f55;
+}
+footer div {
+  display: inline-block;
+}
+footer div a {
+  display: inline-block;
+  line-height: 30px;
+  width: 110px;
+  border: 1px solid #acacac;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+		  /*Форма регистрации*/
+.field{
+  text-align:right;
+  clear:both;
+  margin-top:10px;
+  font:bold 14px Arial;
+}
+.field:nth-child(4){
+  margin-top:35px;
+}
+.field label{
+  float:left;
+  padding-right:35px;
+  position:relative;
+  color: grey;
+}
+#main{
+  float:left;
+  margin-left:5%;
+  margin-bottom: 10px;
+}
+.field input[type="text"],input[type="email"],.field input[type="password"]{
+  width:225px;
+}
+input:valid + span:before {
+  content:'\2713';
+  font:18px Arial;
+  color:green;
+  margin-left:10px;
+  position:absolute;
+}
+#xxx:before {
+  content:"+";
+  display:inline-block;
+  font-size:1.5em;
+  color:red;
+  margin-left:10px;
+  -webkit-transform:rotateZ(45deg);
+  transform:rotateZ(45deg);
+  position:absolute;
+}
+.capcha input{
+  width:225px;
+  margin-left:49px;
+}
+.capcha{ 
+  position:relative;
+}
+.close{
+  float:left;
+}
+#window h3 {
+  display: inline;
+  position: relative;
+  top:-30px;
+  left: 20px;
+}
+label{
+  position:relative;
+}
+.capcha strong{
+  position:absolute;
+  width:170px;
+  left:120px;
+  top:80px;
+  color:red;
+}
+#submit {
+  margin-top: 20px;
+  width: 88%;
+  margin-left: 20px;
+}
+
+
+
+     /*Comments style*/
+#p {
+  padding: 10px 20px;
+  background: #F0F0F0;
+  font: 400 17px sans-serif;
+  color: #282828;
+}
+#date {
+  display: inline;
+  float: right;
+  font: 15px times;
+}
+#h3_name {
+  display: inline;
+}
