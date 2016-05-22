@@ -1,6 +1,6 @@
 ## Laravel 5 Tech Blog ##
 
-<a href="dhost.ml">Tech Blog</a>
+<a href="http://dhost.ml">Tech Blog</a>
 
 ### Features ###
 
