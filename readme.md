@@ -14,7 +14,7 @@
 
 
 ### Админ панель ###
-<a href="http://dhost.ml/admin">Tech Blog</a><br/>
+<a href="http://dhost.ml/admin">Admin Tech Blog</a><br/>
 Логин = admin@gmail.com,
 Пароль = 123456
 
