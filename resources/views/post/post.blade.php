@@ -31,7 +31,7 @@
             </div>
         <h3>Комментарии</h3>
         <form id="addComment" action="{{ url('post/comment')}}" method="POST">
-            {{ csrf_field() }}
+
             <input type="hidden" id="post_id" name="post_id" value="{{ $id }}"/>
             <p>Ваше имя: <input type="text" id="nameC" name="name" required/></p>
             <p>Ваш e-mail: <input type="email" id="emailC" name="email"/></p>

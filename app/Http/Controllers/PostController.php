@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Comment;
-use App\Post;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use DB;
 
 class PostController extends Controller
 {

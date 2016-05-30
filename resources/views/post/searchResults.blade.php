@@ -8,7 +8,7 @@
         </div>
 
         <section>
-            @if( $count > 0 )
+            @if( count($result) )
                 @foreach($result as $key => $item)
                     <li><h3><a href="/post/{{ $item->slug }}"> {{ $item->title }} </a></h3></li>
                 @endforeach

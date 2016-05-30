@@ -7,5 +7,6 @@
 </footer>
 <script src="{{ asset('js/TechBlog.js') }}"></script>
 <script src="{{ asset('js/ajax.js') }}"></script>
+@yield('script')
 </body>
 </html>

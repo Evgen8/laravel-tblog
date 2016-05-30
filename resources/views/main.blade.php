@@ -10,6 +10,9 @@
                         <a href='/post/{{ $item->slug }}'>{!! $item->image !!}</a>
                     </div>
                 @endforeach
+                @if(!count($post))
+                    <h3>В данном разделе еще нет статей</h3>
+                @endif
             </div>
 
             <div id="more">

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\Category;
+use App\Models\Post;
+use App\Models\Category;
 use App\Http\Requests;
 
 class MainPageController extends Controller
@@ -16,7 +16,7 @@ class MainPageController extends Controller
      */
     public function index()
     {
-        $post = Post::latest('created_at')->paginate(9);
+        $post = Post::latest('created_at')->where('status', '=', 1)->paginate(9);
         $category = Category::all();
         return view('main', ['post' => $post, 'category' => $category]);
     }
@@ -26,15 +26,13 @@ class MainPageController extends Controller
         return redirect('/');
     }
 
-    public function sortPost($slug, $id)
+    public function sortPost($category)
     {
-
-        /*$categoryId = Category::select('id')->where('slug', '=', $slug )->get();
-        dd($categoryId->id);*/
-        $post = Post::where('category_id', '=', $id )->paginate(9);
+        $categoryId = Category::select('id')->where('slug', '=', $category )->first()->id;
+        //dd($categoryId);
+        $post = Post::where('category_id', '=', $categoryId )->where('status', '=', 1)->paginate(9);
         $category = Category::all();
-        return view('main', ['post' => $post, 'category' => $category, 'categoryId' => $id ]);
-        /*return view('layout.ajaxSection', ['post' => $post, 'category' => $category, 'categoryId' => $categoryId ]);*/
+        return view('main', ['post' => $post, 'category' => $category, 'categoryId' => $categoryId ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -49,7 +47,7 @@ class MainPageController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
-        $result = Post::SearchByKeyword($keyword)->orderBy('id', 'asc')->get();
+        $result = Post::SearchByKeyword($keyword)->where('status', '=', 1)->orderBy('id', 'asc')->get();
         $count = $result->count();
         $category = Category::all();
         return view('post.searchResults', ['result' => $result, 'keyword' => $keyword, 'count' => $count, 'category' => $category]);

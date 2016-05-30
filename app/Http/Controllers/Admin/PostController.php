@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Post;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class PostController extends Controller
+{
+    public function posts()
+    {
+        $posts = Post::with('category', 'comments')->get();
+        $category = Category::all();
+        /*dd($posts);*/
+        return view('admin.posts', ['posts' => $posts, 'category' => $category]);
+    }
+
+    public function viewPost($id)
+    {
+        $post = Post::find($id);
+        $comments = Comment::where('post_id', '=', $id)->get();
+        return view('admin.viewPost', ['post' => $post, 'comments' => $comments]);
+    }
+
+    public function publish(Request $request)
+    {
+        $id = $request->id;
+        $post = Post::find($id);
+        if($post->status == 0) {
+            $post->status = '1';
+        } else {
+            $post->status = '0';
+        }
+
+        if(!$post->save()){
+            return 'error';
+        } else {
+            $posts = Post::with('category', 'comments')->get();
+            return view('admin.partials._posts', ['posts' => $posts]);
+        }
+    }
+    public function change_cat(Request $request)
+    {
+        $post = $request->post;
+        $post = Post::find($post);
+        $post->category_id = $request->id;
+        if(!$post->save()){
+            return 'error';
+        } else {
+            $posts = Post::with('category', 'comments')->get();
+            return view('admin.partials._posts', ['posts' => $posts]);
+        }
+    }
+}

@@ -14,12 +14,12 @@
     }
     
     $(':password').keyup(function(){
-        var pas1 = $('input[name=password]');
-        var pas2 = $('input[name=password_confirmation]');
+        var pas1 = $('#fi5');
+        var pas2 = $('#fi6');
         if (pas1.val() == pas2.val()) {
-           pas2.next().replaceWith('<span></span>');
+            pas2.next().replaceWith('<span></span>');
         } else {
-           pas2.next().replaceWith('<span id="xxx"><strong></strong></span>');
+            pas2.next().replaceWith('<span id="xxx"><strong></strong></span>');
         }
     });
     $('input[name=capcha]').change(function(){

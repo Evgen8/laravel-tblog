@@ -25,19 +25,6 @@ header {
   margin: 10px 0px;
   position: relative;
 }
-            /*Фон, цвет виделеного текста*/
-body *::-moz-selection {
-  background: rgba(255,251,102, 0.8);
-  color: rgb(19,188,188);
-}
-body *::-webkit-selection {
-  background: rgba(255,251,102, 0.8);
-  color: rgb(19,188,188);
-}
-body *::selection {
-  background: rgba(255,251,102, 0.8);
-  color: rgb(19,188,188);
-}
               /*Навигация*/
 header h1 {
   font:bold 58px sans-serif;
@@ -52,7 +39,7 @@ header span {
 }
 header ul {
   display: inline-block;
-  margin: 35px 55px; 
+  margin: 35px 55px;
   border-bottom: 5px solid #ddd;
   padding: 0px 2px;
 }
@@ -60,7 +47,7 @@ header li {
   display: inline-block;
   font: bold 22px verdana;
   line-height: 40px;
-  padding: 0px 5px; 
+  padding: 0px 5px;
   border: 1px solid #fff;
   margin: 10px -2px 0px -2px;
 }
@@ -92,7 +79,7 @@ header .active {
   right: 20px;
   top: 10px;
   width: 220px;
-  
+
   border-radius: 3px;
 }
 form a, input {
@@ -100,16 +87,16 @@ form a, input {
   border-radius: 3px;
   padding: 3px 3px;
   font-size: 14px;
-  margin: 2px; 
+  margin: 2px;
   width: 190px;
+}
+#loginAjax {
+  background: #40C781;
+  color: white;
 }
 #aForgot {
   border: none;
   font: 15px sans;
-  color: white;
-}
-#log-in label{
-  color: white;
 }
 input[type="checkbox"] {
   width: 20px;
@@ -134,6 +121,7 @@ input[type="button"]:hover, [type="submit"]:hover {
   background: #ebebeb;
   width: 120px;
   padding: 3px 5px 4px 5px;
+  font: bold 14px sans-serif;
 }
 #loginBtn, #search input[type="button"]{
   width: 75px;
@@ -157,16 +145,16 @@ input[type="button"]:hover, [type="submit"]:hover {
 }
 .help-block {
   display: block;
-  color: white;
+  color: #7D0303;
   text-shadow: none;
   padding: 3px;
 }
 #log-in, #Sign-up {
-  background: silver;
-  margin: 3px;
-  padding: 5px;
+  background: white;
+  margin-top: 3px;
+  padding: 10px;
   width: 202px;
-  box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 10px #ccc;
   position: relative;
   z-index: 1;
 }
@@ -176,6 +164,88 @@ input[type="button"]:hover, [type="submit"]:hover {
   right: 250px;
   top: 8px;
 }
+
+
+/*Форма регистрации*/
+#registration {
+    width: 50%;
+    margin: auto;
+}
+#registration h3{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.field{
+    text-align:right;
+    clear:both;
+    margin-top:10px;
+    font:bold 14px Arial;
+}
+.field label{
+    float:left;
+    padding-right:35px;
+    position:relative;
+    color: grey;
+}
+#main{
+    float:left;
+    margin-left:5%;
+    margin-bottom: 10px;
+}
+.field input[type="text"],input[type="email"],.field input[type="password"], input[type="tel"]{
+    width:225px;
+}
+.field input:valid + .field span:before {
+    content:'\2713';
+    font:18px Arial;
+    color:green;
+    margin-left:10px;
+    position:absolute;
+}
+#xxx:before {
+    content:"+";
+    display:inline-block;
+    font-size:1.5em;
+    color:red;
+    margin-left:10px;
+    -webkit-transform:rotateZ(45deg);
+    transform:rotateZ(45deg);
+    position:absolute;
+}
+.capcha input{
+    width:225px;
+    margin-left:49px;
+}
+.capcha{
+    position:relative;
+}
+.close{
+    float:left;
+}
+#window h3 {
+    display: inline;
+    position: relative;
+    top:-30px;
+    left: 20px;
+}
+label{
+    position:relative;
+}
+.capcha strong{
+    position:absolute;
+    width:170px;
+    left:120px;
+    top:80px;
+    color:red;
+}
+#submit {
+    margin-top: 20px;
+    width: 88%;
+    margin-left: 20px;
+}
+
 		   /*Popup*/
 #wrap{
 	display: none;
@@ -221,7 +291,7 @@ section {
   min-height: 740px;
   margin: auto;
   padding-top: 10px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 section .post {
   height: 200px;
@@ -253,7 +323,7 @@ h2:hover {
 h2 a {
   color: white;
   display: block;
-  height: 80px; 
+  height: 80px;
 }
 section div img {
   max-height: 100%;
@@ -332,80 +402,6 @@ footer div a {
 
 
 
-
-
-		  /*Форма регистрации*/
-.field{
-  text-align:right;
-  clear:both;
-  margin-top:10px;
-  font:bold 14px Arial;
-}
-.field:nth-child(4){
-  margin-top:35px;
-}
-.field label{
-  float:left;
-  padding-right:35px;
-  position:relative;
-  color: grey;
-}
-#main{
-  float:left;
-  margin-left:5%;
-  margin-bottom: 10px;
-}
-.field input[type="text"],input[type="email"],.field input[type="password"]{
-  width:225px;
-}
-.field input:valid + span:before {
-  content:'\2713';
-  font:18px Arial;
-  color:green;
-  margin-left:10px;
-  position:absolute;
-}
-#xxx:before {
-  content:"+";
-  display:inline-block;
-  font-size:1.5em;
-  color:red;
-  margin-left:10px;
-  -webkit-transform:rotateZ(45deg);
-  transform:rotateZ(45deg);
-  position:absolute;
-}
-.capcha input{
-  width:225px;
-  margin-left:49px;
-}
-.capcha{ 
-  position:relative;
-}
-.close{
-  float:left;
-}
-#window h3 {
-  display: inline;
-  position: relative;
-  top:-30px;
-  left: 20px;
-}
-label{
-  position:relative;
-}
-.capcha strong{
-  position:absolute;
-  width:170px;
-  left:120px;
-  top:80px;
-  color:red;
-}
-#submit {
-  margin-top: 20px;
-  width: 88%;
-  margin-left: 20px;
-}
 
 
 

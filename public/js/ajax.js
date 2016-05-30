@@ -71,6 +71,7 @@ $('#addComment').on('submit', function (event) {
         data: {post_id: post_id, name: name, email: email, message: message},
         success: function( data ) {
             $('#ajaxComment').html(data);
+            $('#addComment').trigger("reset");
         }
     });
 });
