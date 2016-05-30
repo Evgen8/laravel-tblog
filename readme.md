@@ -2,9 +2,9 @@
 
 Используется: Laravel 5, MySQL, jQuery, Ajax, Json, html5, css3, bootstrap
 
-Сайт: <a href="http://dhost.ml">Tech Blog</a>
 
-## Возможности ##
+### Сайт ###
+<a href="http://dhost.ml">Tech Blog</a>
 
 * Авторизация и регистрация
 * Категории статей
@@ -13,11 +13,10 @@
 * Поиск
 
 
-Админ панель: <a href="http://dhost.ml/admin">Tech Blog</a>
+### Админ панель ###
+<a href="http://dhost.ml/admin">Tech Blog</a>
 Логин: admin@gmail.com
 Пароль: 123456
-
-## Возможности ##
 
 Управление статьями:
 * добавление
