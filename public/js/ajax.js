@@ -35,27 +35,6 @@ $('#loginAjax').click(function () {
     });
 });
 
-/*$('.menu').click(function () {
-    var id = $(this).data('category');
-    var li = $(this);
-    token();
-
-    $.ajax({
-        url: "category",
-        method: "post",
-        data: {id: id},
-        success: function (data) {
-            /!*if( location !== '/') {
-             location.replace('/');
-             }*!/
-            $('#ajaxSection').html(data);
-            $('.menu').removeClass('active');
-            li.addClass('active');
-
-        }
-    });
-});*/
-
 $('#addComment').on('submit', function (event) {
     event.preventDefault();
     token();
