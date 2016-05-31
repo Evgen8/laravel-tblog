@@ -21,7 +21,7 @@ class PostController extends Controller
 
     public function viewPost($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $comments = Comment::where('post_id', '=', $id)->get();
         return view('admin.viewPost', ['post' => $post, 'comments' => $comments]);
     }
@@ -29,7 +29,7 @@ class PostController extends Controller
     public function publish(Request $request)
     {
         $id = $request->id;
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         if($post->status == 0) {
             $post->status = '1';
         } else {
@@ -46,7 +46,7 @@ class PostController extends Controller
     public function change_cat(Request $request)
     {
         $post = $request->post;
-        $post = Post::find($post);
+        $post = Post::findOrFail($post);
         $post->category_id = $request->id;
         if(!$post->save()){
             return 'error';

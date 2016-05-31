@@ -53,11 +53,11 @@ class AdminController extends Controller
 
     public function edit_admin($id)
     {
-        $admin = User::find($id);
+        $admin = User::findOrFail($id);
         return $admin->toJson();
     }
 
-    public function save_admin(Request $request, $id)
+    public function save_admin($id)
     {
         $inputData = Input::get('formData');
         parse_str($inputData, $formFields);

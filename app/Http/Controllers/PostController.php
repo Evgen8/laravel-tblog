@@ -51,7 +51,7 @@ class PostController extends Controller
      */
     public function show($slug)
     {   
-        $post = Post::where('slug', '=', $slug)->first();
+        $post = Post::where('slug', '=', $slug)->firstOrFail();
         $id = $post->id;
         $comment = Comment::where('post_id', '=', $id)->get();
         $category = Category::all();

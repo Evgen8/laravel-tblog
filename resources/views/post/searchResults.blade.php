@@ -10,7 +10,7 @@
         <section>
             @if( count($result) )
                 @foreach($result as $key => $item)
-                    <li><h3><a href="/post/{{ $item->slug }}"> {{ $item->title }} </a></h3></li>
+                    <li><h3><a href="{{ url('/post', $item->slug) }}"> {{ $item->title }} </a></h3></li>
                 @endforeach
             @else
                 <p>По вашему запросу ничего не найдено</p>

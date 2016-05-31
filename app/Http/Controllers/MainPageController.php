@@ -28,7 +28,7 @@ class MainPageController extends Controller
 
     public function sortPost($category)
     {
-        $categoryId = Category::select('id')->where('slug', '=', $category )->first()->id;
+        $categoryId = Category::select('id')->where('slug', '=', $category )->firstOrFail()->id;
         //dd($categoryId);
         $post = Post::where('category_id', '=', $categoryId )->where('status', '=', 1)->paginate(9);
         $category = Category::all();

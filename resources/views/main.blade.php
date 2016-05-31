@@ -6,8 +6,8 @@
             <div id="ajaxSection">
                 @foreach($post as $item)
                     <div class="post">
-                        <h2><a href='/post/{{ $item->slug }}'>{{ $item->title }}</a></h2>
-                        <a href='/post/{{ $item->slug }}'>{!! $item->image !!}</a>
+                        <h2><a href="{{ url('/post', $item->slug) }}">{{ $item->title }}</a></h2>
+                        <a href="{{ url('/post', $item->slug) }}">{!! $item->image !!}</a>
                     </div>
                 @endforeach
                 @if(!count($post))

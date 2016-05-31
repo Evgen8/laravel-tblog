@@ -8,12 +8,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b> Tech Blog</a>
+            <a href="{{ url('/') }}"><b>Admin</b> Tech Blog</a>
         </div><!-- /.login-logo -->
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Ошибка!</strong> Проверьте корректность введенных данных.<br><br>
+            <strong>Ошибка!</strong> Проверьте корректность введенных данных.<br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
