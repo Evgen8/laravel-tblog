@@ -11,22 +11,21 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function posts()
+    public function index()
     {
         $posts = Post::with('category', 'comments')->get();
         $category = Category::all();
-        /*dd($posts);*/
         return view('admin.posts', ['posts' => $posts, 'category' => $category]);
     }
 
-    public function viewPost($id)
+    public function show($id)
     {
         $post = Post::findOrFail($id);
         $comments = Comment::where('post_id', '=', $id)->get();
         return view('admin.viewPost', ['post' => $post, 'comments' => $comments]);
     }
 
-    public function publish(Request $request)
+    public function edit_status(Request $request)
     {
         $id = $request->id;
         $post = Post::findOrFail($id);
@@ -43,7 +42,7 @@ class PostController extends Controller
             return view('admin.partials._posts', ['posts' => $posts]);
         }
     }
-    public function change_cat(Request $request)
+    public function edit_cat(Request $request)
     {
         $post = $request->post;
         $post = Post::findOrFail($post);

@@ -18,7 +18,7 @@ $(document).ready(function() {
         var id = $(this).val();
         token();
         $.ajax({
-            url: "/admin/posts/publish",
+            url: "/admin/posts/edit_status",
             type: "POST",
             data: {id: id},
             success: function (result) {
@@ -47,7 +47,7 @@ $(document).ready(function() {
         var post = localStorage.getItem("post");
         token();
         $.ajax({
-            url: "/admin/posts/change_category",
+            url: "/admin/posts/edit_category",
             type: "POST",
             data: {id: id, post: post},
             success: function (result) {

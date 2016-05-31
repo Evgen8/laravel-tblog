@@ -14,13 +14,22 @@ use Response;
 class AdminController extends Controller
 {
 
-    public function administrators()
+    public function index()
     {
         $admin = User::where('is_admin', '=', 1)->get();
         return view('admin.administrators', ['admin' => $admin]);
     }
 
-    public function add_admin()
+    public function create()
+    {
+        //
+    }
+
+    public function show()
+    {
+        //
+    }
+    public function store()
     {
         $inputData = Input::get('formData');
         parse_str($inputData, $formFields);
@@ -51,13 +60,13 @@ class AdminController extends Controller
         }
     }
 
-    public function edit_admin($id)
+    public function edit($id)
     {
         $admin = User::findOrFail($id);
         return $admin->toJson();
     }
 
-    public function save_admin($id)
+    public function update($id)
     {
         $inputData = Input::get('formData');
         parse_str($inputData, $formFields);
@@ -78,6 +87,7 @@ class AdminController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             ));
         else {
+
             $admin = User::find($id);
             $admin->name = $formFields['name'];
             $admin->email = $formFields['email'];
@@ -92,7 +102,7 @@ class AdminController extends Controller
         }
     }
 
-    public function delete_admin(Request $request)
+    public function destroy(Request $request)
     {
         $id = $request->id;
         $admin = User::find($id);

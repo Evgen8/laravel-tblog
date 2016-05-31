@@ -35,7 +35,7 @@ $(document).ready(function() {
         $('#password, #password_confirmation').attr("disabled", true);
         $('#Modal').modal('show');
         token();
-        $.getJSON("/admin/administrators/" + id, function (json) {
+        $.getJSON("/admin/administrators/"+id+"/edit", function (json) {
             $('#name').val(json.name);
             $('#email').val(json.email);
             $('#phone').val(json.tel);
@@ -127,4 +127,38 @@ $(document).ready(function() {
             }
         });
     });
+
+
+
+/*    $('#modalForm').submit(function (event) {
+ event.preventDefault();
+ $('#myModalLabel').html('Добавить администратора');
+ $('#btn-save').val("Добавить");
+ var name = $('#name').val();
+ var rights = $('#rights').val();
+ var birthday = $('#birthday').val();
+ var email = $('#email').val();
+ var tel = $('#tel').val();
+ token();
+ $.ajax({
+ url: "/admin/administrators/add",
+ type: "POST",
+ data: {
+ name: name,
+ rights: rights,
+ birthday: birthday,
+ email: email,
+ tel: tel
+ },
+ success: function (result) {
+ if (result != 'error') {
+ $('#addModal').modal('hide');
+ $('#ajaxAdmins').html(result);
+ alertOk('Администратор добавлен');
+ } else if (result == 'error') {
+ alertOk('Ошыбка!');
+ }
+ }
+ });
+ });*/
 });

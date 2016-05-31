@@ -29,21 +29,16 @@ Route::group(['middleware' => ['web']], function () {
     {
         Route::get('/', 'IndexController@index');
 
-        Route::get('/posts', 'PostController@posts');
-        Route::get('/posts/{id}', 'PostController@viewPost');
-        Route::post('/posts/publish', 'PostController@publish');
-        Route::post('/posts/change_category', 'PostController@change_cat');
+        Route::get('/posts', 'PostController@index');
+        Route::get('/posts/{id}', 'PostController@show');
+        Route::post('/posts/edit_status', 'PostController@edit_status');
+        Route::post('/posts/edit_cat', 'PostController@edit_cat');
 
         Route::get('/users', 'UserController@users');
 
-        Route::get('/administrators', 'AdminController@administrators');
-        Route::post('/administrators', 'AdminController@add_admin');
-        Route::get('/administrators/{id}', 'AdminController@edit_admin');
-        Route::put('/administrators/{id}', 'AdminController@save_admin');
-        Route::delete('/administrators/{id}', 'AdminController@delete_admin');
+        Route::resource('/administrators', 'AdminController');
         Route::post('/email', 'AdminController@send_mail');
     });
-    //});
 
     // Home
     Route::get('/', 'MainPageController@index');
