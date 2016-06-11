@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-@section('css')
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/TechBlog.css') }}"/>
-@stop
 @include('layout.header')
 
 <body>

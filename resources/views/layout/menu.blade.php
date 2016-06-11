@@ -1,39 +1,69 @@
-<header>
-    <h1><a href="{{ url('/') }}">Техно<span>Blog</span></a></h1>
-    <form id="search" role="form" method="POST" action="{{ url('/search') }}">
-        {!! csrf_field() !!}
-        <input type="search" name="keyword" required>
-        <input id="search_btn" type="submit" name="sick" value="Поиск">
-    </form>
-    <ul>
-        @foreach($category as $key => $item)
-            @if( isset($post->category_id) && $post->category_id == $item->id || isset($categoryId) && $categoryId == $item->id )
-                <li class="menu active"><a href="/category/{{ $item->slug }}">{{ $item->name }}</a></li>
-            @else
-                <li class="menu"><a href="/category/{{ $item->slug }}">{{ $item->name }}</a></li>
-            @endif
-        @endforeach
-    </ul>
-
-    @if (Auth::check())
-        <div id="entry">
-            <h3 style='padding: 0; margin: 0; display:inline;'><b>{{ Auth::user()->name }}</b></h3>
-            <a href="{{ url('/logout') }}" id="loginBtn" class="logout">Выйти</a>
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#responsive-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a id="logo" href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
+            <a class="navbar-brand" href="{{ url('/') }}">Tech Blog</a>
         </div>
-    @else
-        <form id="entry" action="{{ url('/login') }}" method="post">
-            <input id="loginBtn" type="button" name="log-in" value="Войти" onclick="javascript:showElement('log-in')">
-            <a href="{{ url('/register') }}" id="registrationBtn"  >Регистрация</a>
-            {!! csrf_field() !!}
-            <div id="log-in" style="display:none;">
-                <input autofocus type="text" name="email" id="email" placeholder="email" required>
-                <input type="password" name="password" id="password" placeholder="Пароль" required>
-                <span class="help-block" id="wrongMessage"></span>
-                <label><input type="checkbox" name="remember"> Запомнить меня</label>
-                <input type="button" id="loginAjax" value="Войти"><br>
-                <a id="aForgot" href="{{ url('/password/reset') }}">Забыли пароль?</a>
-            </div>
-        </form>
-    @endif
-
-</header>
+        <div class="collapse navbar-collapse" id="responsive-menu">
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::check())
+                    <li class="menu">
+                        <div id="logined">
+                            <h3 style="display:inline;"><b>{{ Auth::user()->name }}</b></h3>
+                            <a href="{{ url('/logout') }}" id="loginBtn" class="btn logout">Выйти </a>
+                        </div>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Войти <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <form class="navbar-form" id="entry" action="{{ url('/login') }}" method="post">
+                                {!! csrf_field() !!}
+                                <div class="form-group">
+                                    <input autofocus type="email" name="email" id="email" placeholder="email" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" placeholder="Пароль" required class="form-control">
+                                </div>
+                                <span id="wrongMessage"></span>
+                                <label><input type="checkbox" name="remember"> Запомнить меня</label>
+                                <button type="button" id="loginAjax" class="btn">Войти</button>
+                                <a id="aForgot" href="{{ url('/password/reset') }}">Забыли пароль?</a>
+                                <a class="btn btn-default btn-block" href="{{ url('/register') }}" id="registrationBtn">Регистрация</a>
+                            </form>
+                        </ul>
+                    </li>
+                    <li class="menu"><a href="{{ url('/register') }}" id="regBtn">Регистрация</a></li>
+                @endif
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-search"></i></a>
+                    <ul class="dropdown-menu">
+                        <form class="navbar-form" id="search" method="POST" action="{{ url('/search') }}">
+                            {!! csrf_field() !!}
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="keyword" required>
+                                <span class="input-group-btn">
+                                    <button  id="search_btn" class="btn  btn-success" type="submit">Найти</button>
+                                </span>
+                            </div>
+                        </form>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                @foreach($category as $key => $item)
+                    @if( isset($post->category_id) && $post->category_id == $item->id || isset($categoryId) && $categoryId == $item->id )
+                        <li class="menu active"><a href="/category/{{ $item->slug }}">{{ $item->name }}</a></li>
+                    @else
+                        <li class="menu"><a href="/category/{{ $item->slug }}">{{ $item->name }}</a></li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
